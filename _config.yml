@@ -1,0 +1,59 @@
+title: Maine Ad + Design
+description: Maine Ad + Design is the oldest advertising club in the United States, supporting the creative community in Maine since 1923.
+baseurl: ""
+url: "https://maineaddesign.com"
+
+# Social media
+social:
+  facebook: maineaddesign
+  instagram: maineaddesign
+  linkedin: maineaddesign
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+encoding: utf-8
+
+# Plugin settings
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-redirect-from
+
+# Kramdown settings
+kramdown:
+  input: GFM
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+  entity_output: :as_char
+  syntax_highlighter_opts:
+    disable: true
+
+# Collections settings
+collections:
+  brodersons:
+    output: true
+    permalink: /brodersons/:name/
+  events:
+    output: true
+    permalink: /events/:name/
+  winners:
+    output: true
+    permalink: /brodersons/2025/winners/:name/
+  categories:
+    output: false
+
+# Exclude from processing
+exclude:
+  - "asset sources"
+  - CLAUDE.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .gitignore
+
+# Sass settings
+sass:
+  sass_dir: _sass
+  style: compressed

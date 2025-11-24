@@ -1,0 +1,37 @@
+# Jekyll build output
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Bundler files
+.bundle/
+vendor/
+
+# Ruby dependency management
+Gemfile.lock
+
+# Mac OS X files
+.DS_Store
+
+# VS Code files
+.vscode/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*~
+
+# Claude instructions
+CLAUDE.md
+assets/winners/convert_csv_to_jekyll.py
+.gitignore
+assets/winners/winners_with_details.csv
+
+# Cloudflare/Wrangler files
+.wrangler/
+wrangler.toml.bak
+
+# Brodersons assets
+assets/winners

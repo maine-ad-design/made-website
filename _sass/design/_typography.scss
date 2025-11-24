@@ -1,0 +1,264 @@
+// Typography Variables
+:root {
+  // References fonts.css 
+  --font-sans: var(--font-golos);
+  --font-serif: var(--font-aluminia-original);
+  --font-mono: var(--font-fragment-mono);
+  --font-heading: var(--font-brandon);
+  
+  --line-height-tight: 1;
+  --line-height-normal: 1.4;
+  --line-height-loose: 1.4;
+}
+
+// Base Typography Setup
+body {
+  font-family: var(--font-sans);
+  line-height: var(--line-height-normal);
+  color: var(--ink);
+  background-color: var(--page);
+  -webkit-font-smoothing: antialiased;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  line-height: var(--line-height-tight);
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.25em;
+}
+
+h5 {
+  font-size: 1em;
+}
+
+h6 {
+  font-size: 0.875em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+// Paragraphs and spacing
+p, ul, ol, dl, blockquote {
+  margin-top: 0;
+  margin-bottom: 1em;
+  max-width: var(--text-max-width);
+  text-wrap: pretty;
+  hanging-punctuation: first last;
+}
+
+.lede {
+  font-size: 1.4em;
+  font-weight: 300;
+  line-height: var(--line-height-loose);
+  text-wrap: balance;
+  font-family: var(--font-aluminia);
+  max-width: 55ch;
+}
+
+// Links
+a {
+  color: inherit;
+  text-decoration: underline;
+  
+  &:hover, &:focus {
+    color: var(--currentlinktext);
+  }
+  
+  &.external {
+    /* Removed arrow since we now use SVG icon */
+  }
+}
+
+// Lists
+ul, ol {
+  padding-left: 1.5em;
+  
+  li {
+    margin-bottom: 0.5em;
+  }
+  
+  ul, ol {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+}
+
+ul {
+  list-style-type: square;
+}
+
+dl {
+  dt {
+    font-weight: 700;
+  }
+  
+  dd {
+    margin-left: 0;
+  }
+}
+
+// Blockquotes
+blockquote {
+  border-left: 0.25rem solid var(--wintermint);
+  padding-left: 1em;
+  font-style: italic;
+  color: var(--ink);
+  text-wrap: pretty;
+  hyphenate-limit-chars: 6 3 3;
+  hyphens: auto;
+}
+
+// Code
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  // background-color: var(--page);
+  border: 0.0625rem solid var(--ink);
+  border-radius: var(--border-radius);
+  max-width: 100%;
+}
+
+code {
+  padding: 0.2em 0.4em;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+pre {
+  padding: 1em;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  max-width: 100%;
+  
+  code {
+    background-color: transparent;
+    padding: 0;
+  }
+}
+
+// Horizontal Rule
+hr {
+  border: 0;
+  border-top: 0.0625rem solid var(--ink);
+  opacity: 0.1;
+  margin: 2em 0;
+}
+
+// Highlighted text
+mark {
+  background-color: var(--theme-mark, var(--mark-color));
+  padding: 0;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+// Straplines and Headlines
+.strapline {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5em;
+}
+
+.headline {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 2em;
+  font-weight: 700;
+  line-height: var(--line-height-tight);
+  margin-top: 0;
+  margin-bottom: 1em;
+  text-wrap: balance;
+}
+
+// Icons
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  fill: currentColor;
+  
+  &.icon-sm {
+    width: 0.875em;
+    height: 0.875em;
+  }
+  
+  &.icon-lg {
+    width: 1.25em;
+    height: 1.25em;
+  }
+  
+  &.icon-xl {
+    width: 1.5em;
+    height: 1.5em;
+  }
+}
+
+// Unicode/emoji icons
+.emoji-icon {
+  display: inline-block;
+  margin: 0 0.15em;
+  
+  &.paper-airplane {
+    &::after {
+      content: "✈️";
+    }
+  }
+  
+  &.external {
+    &::after {
+      content: "↗︎";
+    }
+  }
+  
+  &.social-linkedin {
+    &::after {
+      content: "in";
+      font-weight: bold;
+      padding: 0 0.2em;
+      background-color: var(--linktext);
+      color: var(--page);
+      border-radius: 0.2em;
+    }
+  }
+  
+  &.social-instagram {
+    &::after {
+      content: "📷";
+    }
+  }
+  
+  &.social-facebook {
+    &::after {
+      content: "f";
+      font-weight: bold;
+      padding: 0 0.3em;
+      background-color: #1877F2;
+      color: white;
+      border-radius: 0.2em;
+    }
+  }
+}

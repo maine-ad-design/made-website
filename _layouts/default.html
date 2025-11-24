@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KSFPKDN9');</script>
+    <!-- End Google Tag Manager -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    
+    <!-- Favicon package -->
+    <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicons/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/images/favicons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/images/favicons/site.webmanifest" />
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:image" content="{{ site.url }}{% if page.og_image %}{{ page.og_image }}{% else %}/assets/images/og-default.jpg{% endif %}">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Humans.txt authorship information -->
+    <link rel="author" href="/humans.txt">
+    
+    <link rel="stylesheet" href="{{ '/assets/css/fonts.css' }}">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' }}?{{ site.time | date: '%Y%m%d%H%M%S' }}">
+    <link rel="stylesheet" href="{{ '/assets/css/glightbox.min.css' }}">
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/feed.xml">
+</head>
+<body class="{% if page.has_hero %}has-hero{% endif %}{% if page.class %} {{ page.class }}{% endif %}{% if page.theme %} theme-{{ page.theme }}{% endif %}{% if layout.class %} {{ layout.class }}{% endif %}">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KSFPKDN9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    {% include banner.html %}
+    <header>
+        <div class="container">
+            <a href="/" class="logo">
+                {% include svg/made-logo-horizontal.svg %}
+            </a>
+            <nav>
+                <ul>
+                    {% assign header_nav = site.data.nav.header %}
+                    {% if header_nav %}
+                        {% for item in header_nav %}
+                            {% assign is_active = false %}
+                            {% if item.active_when and page.url %}
+                                {% assign active_equals = item.active_when['equals'] %}
+                                {% assign active_contains = item.active_when['contains'] %}
+                                {% if active_equals and page.url == active_equals %}
+                                    {% assign is_active = true %}
+                                {% elsif active_contains and page.url contains active_contains %}
+                                    {% assign is_active = true %}
+                                {% endif %}
+                            {% endif %}
+                            <li>
+                                <a href="{{ item.url }}"{% if is_active %} class="current"{% endif %}>{{ item.label }}</a>
+                            </li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        {{ content }}
+    </main>
+
+    <footer>
+        <div class="footer-contact">
+            <div class="container">
+                <span class="strapline">Contact</span>
+                <h2 class="headline">{{ site.data.footer.contact.lede }}</h2>
+
+                <div class="contact-info">
+                    <div class="contact-method">
+                        {% include icon.html name="paper-airplane" %}
+                        <a href="mailto:{{ site.data.footer.contact.email }}">{{ site.data.footer.contact.email }}</a>
+                    </div>
+                    
+                    <div class="contact-method">
+                        {% include icon.html name="linkedin" %}
+                        <a href="https://www.linkedin.com/company/{{ site.data.footer.contact.linkedin }}" target="_blank">@{{ site.data.footer.contact.linkedin }}</a>
+                    </div>
+                    
+                    <div class="contact-method">
+                        {% include icon.html name="instagram" %}
+                        <a href="https://www.instagram.com/{{ site.data.footer.contact.instagram }}" target="_blank">@{{ site.data.footer.contact.instagram }}</a>
+                    </div>
+                    
+                    <div class="contact-method">
+                        {% include icon.html name="facebook" %}
+                        <a href="https://www.facebook.com/{{ site.data.footer.contact.facebook }}" target="_blank">@{{ site.data.footer.contact.facebook }}</a>
+                    </div>
+                    
+                    <div class="contact-method">
+                        {% include icon.html name="envelope" %}
+                        <a href="{{ site.data.footer.contact.signup_url }}" target="_blank">
+                            {{ site.data.footer.contact.signup_text }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-nav">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-info">
+                        <div class="footer-logo">
+                            {% include svg/made-logo.svg %}
+                        </div>
+                        <div class="fineprint">
+                            {{ site.data.footer.fineprint | markdownify }}
+                            <hr>
+                            <p>© {{ site.data.footer.copyright_start_year }}–{% capture now %}{{ "now" | date: "%Y" }}{% endcapture %}{{ now }} {{ site.data.footer.copyright_name }}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <ul>
+                            <li><a href="/"{% if page.url == "/" %} class="current"{% endif %}>Home</a></li>
+                            <li><a href="/about"{% if page.url == "/about/" %} class="current"{% endif %}>About MADE</a></li>
+                            <li><a href="/brodersons"{% if page.url == "/brodersons/" or page.url contains "/brodersons/" %} class="current"{% endif %}>Broderson Awards</a></li>
+                            <li><a href="/membership"{% if page.url == "/membership/" %} class="current"{% endif %}>Become a member</a></li>
+                            <li><a href="/code-of-conduct"{% if page.url == "/code-of-conduct/" %} class="current"{% endif %}>Code of conduct</a></li>
+                            <li>
+                                <a href="https://made.memberful.com/auth/sign_in" target="_blank">
+                                    Member account login
+                                    {% include icon.html name="external-link" %}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://maineaddesign.slack.com" target="_blank">
+                                    Member Slack
+                                    {% include icon.html name="external-link" %}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="{{ '/assets/js/glightbox.min.js' }}"></script>
+    <script src="{{ '/assets/js/main.js' }}?{{ site.time | date: '%Y%m%d%H%M%S' }}"></script>
+</body>
+</html>

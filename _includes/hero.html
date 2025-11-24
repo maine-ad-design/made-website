@@ -1,0 +1,48 @@
+{% comment %}
+  Include usage:
+  {% include hero.html 
+     image_src="/path/to/image.jpg" 
+     title="Hero Title" 
+     content="Additional content (optional)" 
+     image_position="top center"
+     theme="harbor" %}
+
+  Parameters:
+  - image_src: Path to the hero image
+  - title: The main title for the hero
+  - content: (Optional) Additional content for the hero
+  - image_position: (Optional) CSS object-position value (default: "center")
+  - cta_links: (Optional) Array of cta links [{url: "/about", text: "About us"}]
+  - theme: (Optional) Theme to apply to the hero content (default, harbor, midnight, teal, sunshine)
+{% endcomment %}
+
+{% assign image_position = include.image_position | default: "center" %}
+{% assign theme = include.theme | default: "default" %}
+
+<div class="hero-section theme-{{ theme }}">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-inner">
+        <h1>{{ include.title }}</h1>
+        
+        {% if include.content %}
+          {{ include.content | markdownify }}
+        {% endif %}
+        
+        {% if include.cta_links %}
+          <div class="primary-ctas">
+            {% for cta in include.cta_links %}
+              <a href="{{ cta.url }}" class="cta">{{ cta.text }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    
+    {% if include.image_src %}
+    <div class="hero-image">
+      <img src="{{ include.image_src }}" alt="{{ include.title }}" style="object-position: {{ image_position }};">
+    </div>
+    {% endif %}
+  </div>
+</div>

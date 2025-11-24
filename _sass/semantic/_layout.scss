@@ -1,0 +1,379 @@
+// Base layout
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 100vw;
+  position: relative;
+}
+
+// Container
+.container {
+  width: 100%;
+  margin: 0 auto;
+  // Using the standardized container padding variable
+  padding: 0 var(--container-padding);
+  
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-x: visible; // Allow specific children to extend beyond while containing others
+  
+  // No padding needed for main content containers
+  .main-content > & {
+    /* padding-bottom removed */
+  }
+  
+  // But not for containers with hero
+  body.has-hero .main-content > &:first-child {
+    padding-top: 0;
+  }
+}
+
+// Header
+header {
+  padding: var(--space-md) 0;
+  position: relative;
+  font-family: var(--font-heading);
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .logo {
+    display: block;
+    
+    svg {
+      height: 3rem;
+      width: auto;
+      color: var(--theme-ink, var(--ink));
+    }
+  }
+  
+  nav {
+    ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 0.5rem 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    a {
+      color: var(--theme-ink, var(--ink));
+      font-family: var(--font-sans);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      text-transform: none;
+      font-size: 0.875em;
+      position: relative;
+      text-decoration: none;
+      
+      &:hover, &:focus, &[aria-current="page"], &.current {
+        color: var(--theme-current-link, var(--currentlinktext));
+      }
+      
+      &:hover, &:focus {
+        text-decoration: none;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: -0.35rem;
+          left: 0;
+          right: 0;
+          height: 0.15rem;
+          background-color: var(--theme-current-link, var(--currentlinktext));
+          border-radius: 99px;
+          opacity: 0.7;
+        }
+      }
+      
+      &.current {
+        font-weight: 700;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: -0.35rem;
+          left: 0;
+          right: 0;
+          height: 0.15rem;
+          background-color: var(--theme-current-link, var(--currentlinktext));
+          border-radius: 99px;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+// Main content area
+main {
+  flex: 1;
+  overflow-x: clip; /* Use clip to prevent horizontal scrollbar but allow things to extend beyond */
+  position: relative;
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+// Home page specific layout
+.home {
+  text-align: center;
+  
+  .secondary-ctas {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin: 3rem 0;
+  }
+  
+  // For when a hero section is not used
+  h1 {
+    margin-bottom: 2rem;
+  }
+  
+  > img {
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    max-height: 60vh;
+    object-fit: cover;
+    width: 100%;
+  }
+  
+  > .primary-ctas {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+}
+
+// Main content area
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+// Page layout
+.page {
+  h1 {
+    margin-top: 0;
+    margin-bottom: 2rem;
+  }
+  
+  img {
+    margin: 2rem 0;
+    border-radius: var(--border-radius);
+  }
+  
+  hr {
+    margin: 3rem 0;
+  }
+}
+
+// Board members grid
+.board-members {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.board-member {
+  max-width: 10rem;
+}
+
+// Membership tiers
+.membership-tiers {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+  
+  @media (min-width: 40em) {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 2rem;
+  }
+}
+
+// Instagram section
+.instagram {
+  padding: 2rem 0;
+  
+  h2 {
+    text-align: center;
+  }
+  
+  .instagram-follow {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+// Footer
+footer {
+  margin-top: 0; /* Removed top margin */
+  
+  .footer-contact {
+    padding: 3rem 0;
+    background-color: var(--langostino);
+    color: var(--page);
+    
+    .strapline, .headline {
+      color: var(--page);
+    }
+    
+    .contact-info {
+      margin: 2rem 0;
+      max-width: 32rem;
+      
+      .contact-method {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+        
+        a {
+          color: var(--page);
+          text-decoration: none;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          
+          &:hover, &:focus {
+            text-decoration: underline;
+          }
+        }
+        
+        .icon {
+          flex-shrink: 0;
+          color: var(--sunshine);
+          width: 1.5em;
+          height: 1.5em;
+        }
+      }
+    }
+    
+    // Newsletter signup styling removed - now part of contact methods
+  }
+  
+  .footer-nav {
+    padding: 3rem 0;
+    background-color: var(--harbor);
+    color: var(--page);
+    
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      
+      @media (min-width: 48em) {
+        flex-direction: row;
+        gap: 3rem;
+      }
+    }
+    
+    .footer-info {
+      flex: 3;
+      
+      .footer-logo {
+        margin-bottom: 1.5rem;
+        
+        svg {
+          width: 10rem;
+          height: auto;
+          color: var(--seadogs);
+        }
+      }
+    }
+    
+    .fineprint {
+      font-size: 0.875em;
+      color: rgba(var(--page-rgb), 0.8);
+      
+      p {
+        margin-bottom: 1rem;
+        max-width: 65ch;
+      }
+      
+      a {
+        color: var(--seadogs);
+        
+        &:hover {
+          color: var(--wintermint);
+        }
+      }
+    }
+    
+    .footer-links {
+      flex: 1;
+      margin-top: 2rem;
+      
+      @media (min-width: 48em) {
+        margin-top: 0;
+      }
+      
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        
+        li {
+          margin-bottom: 0.75rem;
+          
+          a {
+            color: var(--seadogs);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            
+            &:hover, &:focus {
+              color: var(--wintermint);
+            }
+            
+            &.current {
+              color: var(--wintermint);
+              font-weight: 700;
+            }
+            
+            .icon {
+              color: var(--seadogs);
+              width: 0.85em;
+              height: 0.85em;
+              margin-left: 0.15em;
+            }
+          }
+        }
+      }
+    }
+  }
+}
