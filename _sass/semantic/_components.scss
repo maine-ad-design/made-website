@@ -318,7 +318,7 @@
   display: flex;
   flex-direction: column;
   
-  img {
+  img, .board-member-placeholder {
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
@@ -326,6 +326,11 @@
     margin-bottom: 0.75rem;
     margin-top: 0;
     filter: grayscale(100%);
+  }
+
+  .board-member-placeholder {
+    background: var(--ink, #888);
+    opacity: 0.15;
   }
   
   h3 {

@@ -94,10 +94,6 @@ Maine Ad + Design is dedicated to fostering creativity, supporting professional 
         <p>Secretary</p>
     </div>
     <div class="board-member">
-        <img src="/assets/images/board/DNaylor.jpg" alt="Devon Naylor">
-        <h3>Devon Naylor</h3>
-    </div>
-    <div class="board-member">
         <img src="/assets/images/board/CPuopolo.jpg" alt="Christine Puopolo">
         <h3>Christine Puopolo</h3>
     </div>
@@ -106,15 +102,19 @@ Maine Ad + Design is dedicated to fostering creativity, supporting professional 
         <h3>Alphan Günaydın</h3>
     </div>
     <div class="board-member">
-        <img src="/assets/images/board/MAndrel.jpg" alt="Mel Andrel">
-        <h3>Mel Andrel</h3>
-    </div>    
-    <div class="board-member">
         <img src="/assets/images/board/SCarey.jpg" alt="Stevie Carey">
         <h3>Stevie Carey</h3>
     </div>
     <div class="board-member">
         <img src="/assets/images/board/DStevens.jpg" alt="Delaney Stevens">
         <h3>Delaney Stevens</h3>
+    </div>
+    <div class="board-member">
+        <div class="board-member-placeholder"></div>
+        <h3>Liz Bell</h3>
+    </div>
+    <div class="board-member">
+        <div class="board-member-placeholder"></div>
+        <h3>Jami Harmon</h3>
     </div>
 </div>
