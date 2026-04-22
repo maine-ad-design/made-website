@@ -98,23 +98,35 @@ Maine Ad + Design is dedicated to fostering creativity, supporting professional 
         <h3>Christine Puopolo</h3>
     </div>
     <div class="board-member">
-        <img src="/assets/images/board/AGunyardin.jpg" alt="Alphan Günaydın">
+        <img src="/assets/images/board/AGunaydin.jpg" alt="Alphan Günaydın">
         <h3>Alphan Günaydın</h3>
-    </div>
-    <div class="board-member">
-        <img src="/assets/images/board/SCarey.jpg" alt="Stevie Carey">
-        <h3>Stevie Carey</h3>
     </div>
     <div class="board-member">
         <img src="/assets/images/board/DStevens.jpg" alt="Delaney Stevens">
         <h3>Delaney Stevens</h3>
     </div>
     <div class="board-member">
-        <div class="board-member-placeholder"></div>
+        <img src="/assets/images/board/BWebber.jpg" alt="Britt Webber">
+        <h3>Britt Webber</h3>
+    </div>
+    <div class="board-member">
+        <img src="/assets/images/board/JHarmon.jpg" alt="Jami Harmon">
+        <h3>Jami Harmon</h3>
+    </div>
+    <div class="board-member">
+        <img src="/assets/images/board/SCarey.jpg" alt="Stevie Carey">
+        <h3>Stevie Carey</h3>
+    </div>
+    <div class="board-member">
+        <img src="/assets/images/board/AGregg.jpg" alt="Aurora Gregg">
+        <h3>Aurora Gregg</h3>
+    </div>
+    <div class="board-member">
+        <img src="/assets/images/board/LBell.jpg" alt="Liz Bell">
         <h3>Liz Bell</h3>
     </div>
     <div class="board-member">
-        <div class="board-member-placeholder"></div>
-        <h3>Jami Harmon</h3>
+        <img src="/assets/images/board/TKervin.jpg" alt="Tereza Kervin">
+        <h3>Tereza Kervin</h3>
     </div>
 </div>
