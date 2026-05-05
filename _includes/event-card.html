@@ -29,7 +29,7 @@
         {% if event.button_label %}
           {{ event.button_label }}
         {% elsif event.price %}
-          {{ event.price | prepend: "Tickets: " }}
+          {{ event.price | prepend: "" }}
         {% else %}
           RSVP
         {% endif %}

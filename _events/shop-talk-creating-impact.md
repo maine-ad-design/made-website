@@ -8,7 +8,7 @@ location: MECA - Osher Hall
 address:
   522 Congress Street
   Portland, Maine
-image: /assets/images/events/creative-evolution.jpg
-price:
-ticket_link:
+image: /assets/images/events/creating-impact.jpg
+price: Register Here
+ticket_link: https://maineaddesign.betterworld.org/events/creatingimpact
 ---

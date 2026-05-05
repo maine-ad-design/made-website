@@ -7,7 +7,7 @@ end_time: "7:30 PM"
 location: Blue Lobster Urban Winery
 address:
   200 Anderson Street
-  Portland, Maine
+  Portland, Maine
 image: /assets/images/events/bluelobster.webp
 price: 
 ticket_link: 
