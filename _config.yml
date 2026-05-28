@@ -43,6 +43,11 @@ collections:
   categories:
     output: false
 
+# Include underscore-prefixed files for Cloudflare Pages
+include:
+  - _redirects
+  - _headers
+
 # Exclude from processing
 exclude:
   - "asset sources"
