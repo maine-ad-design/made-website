@@ -1,14 +1,14 @@
 ---
 layout: page
 title: MADE Mixer
-date: 2026-04-23
+date: 2026-06-25
 start_time: "5:30 PM"
 end_time: "7:30 PM"
-location: Nash & Co.
+location: Portland Zoo
 address:
-  417 Congress Street
+  41 Fox Street
   Portland, Maine
-image: /assets/images/events/made-mixer-nashs-co.jpg
+image: /assets/images/events/made-mixer-portland-zoo.jpg
 price: 
 ticket_link: 
 ---
